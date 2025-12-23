@@ -27,6 +27,11 @@
       "@shared/*": ["./src/app/domains/shared/*"],
       "@products/*": ["./src/app/domains/products/*"],
       "@info/*": ["./src/app/domains/info/*"],
+      "@core/*": ["./src/app/core/*"],
+      "@env/*": ["./src/environments/*"],
+      "@assets/*": ["./src/assets/*"],
+
+
     }
   },
   "angularCompilerOptions": {
