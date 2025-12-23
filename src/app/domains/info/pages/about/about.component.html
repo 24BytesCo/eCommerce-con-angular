@@ -1,3 +1,5 @@
+@let durationValue = duration();
+
 <div>
   <h1 class="text-lg font-bold">About</h1>
   <p class="text-base">
@@ -8,8 +10,8 @@
   </p>
   <p class="text-base">
     Numero de clientes
-    @if (duration() > 0) {
-      <app-counter [duration]="duration()" [message]="message()" />
+    @if (durationValue > 0) {
+      <app-counter [duration]="durationValue" [message]="message()" />
     }
   </p>
   <div>
