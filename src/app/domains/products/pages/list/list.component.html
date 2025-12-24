@@ -1,4 +1,4 @@
-<div class="flex mt-5 flex-col md:flex-row md:space-x-4">
+<div class="flex mt-5 flex-col md:flex-row md:space-x-4 ml-10 mr-10">
   <div class="w-full mb-4 md:w-56">
     <ul class="text-center md:text-left">
       <li>
@@ -6,14 +6,16 @@
       </li>
       @for (category of categories(); track category) {
         <li>
-          <a routerLink="/" [queryParams]="{ category_id: category.id }">{{
+          <a routerLink="/" [queryParams]="{ category_id: category.slug }">{{
             category.name
           }}</a>
         </li>
       }
     </ul>
   </div>
-  <div class="grid grid-cols-2 gap-8 w-full md:grid-cols-4">
+  <div
+    class="grid gap-8 w-full sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+  >
     @for (product of products(); track product) {
       <app-product [product]="product" (addToCart)="addToCart($event)" />
     }

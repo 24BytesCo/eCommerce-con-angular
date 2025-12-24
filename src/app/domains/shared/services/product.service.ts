@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Product } from '../models/product.model';
+import {
+  ProductApiFake,
+  ProductsResponse,
+} from '@shared/models/product-fake.model';
 
 @Injectable({
   providedIn: 'root',
@@ -8,17 +11,22 @@ import { Product } from '../models/product.model';
 export class ProductService {
   private http = inject(HttpClient);
 
-  getProducts(category_id?: string) {
-    const url = new URL(`https://api.escuelajs.co/api/v1/products`);
-    if (category_id) {
-      url.searchParams.set('categoryId', category_id);
+  getProducts(category_name?: string) {
+    if (category_name) {
+      const url = new URL(
+        `https://dummyjson.com/products/category/${category_name}`,
+      );
+      return this.http.get<ProductsResponse>(url.toString()).pipe();
     }
-    return this.http.get<Product[]>(url.toString());
+    const url = new URL(`https://dummyjson.com/products`);
+    return this.http.get<ProductsResponse>(url.toString()).pipe();
   }
 
   getOne(id: string) {
-    return this.http.get<Product>(
-      `https://api.escuelajs.co/api/v1/products/${id}`,
+    console.log('id', id);
+
+    return this.http.get<ProductApiFake>(
+      `https://dummyjson.com/products/${id}`,
     );
   }
 }
