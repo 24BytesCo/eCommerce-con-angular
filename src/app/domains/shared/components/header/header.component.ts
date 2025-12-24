@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
 import { SearchComponent } from '../search/search.component';
@@ -11,6 +11,7 @@ import { SearchComponent } from '../search/search.component';
     RouterLinkWithHref,
     RouterLinkActive,
     SearchComponent,
+    NgOptimizedImage,
   ],
   templateUrl: './header.component.html',
 })
